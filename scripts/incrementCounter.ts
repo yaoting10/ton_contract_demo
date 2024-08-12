@@ -5,7 +5,8 @@ import { NetworkProvider, sleep } from '@ton/blueprint';
 export async function run(provider: NetworkProvider, args: string[]) {
     const ui = provider.ui();
 
-    const address = Address.parse(args.length > 0 ? args[0] : await ui.input('Counter address'));
+    // const address = Address.parse(args.length > 0 ? args[0] : await ui.input('Counter address'));
+    const address = Address.parse(args.length > 0 ? args[0] : await ui.input('UQBh9Y3W5lYVU8j3qfj5MZkgA6OiFldgcQFo9DV2ubHViEVC'));
 
     if (!(await provider.isContractDeployed(address))) {
         ui.write(`Error: Contract at address ${address} is not deployed!`);
@@ -13,7 +14,7 @@ export async function run(provider: NetworkProvider, args: string[]) {
     }
 
     const counter = provider.open(Counter.createFromAddress(address));
-
+    console.info('Counter:', counter);
     const counterBefore = await counter.getCounter();
 
     await counter.sendIncrease(provider.sender(), {
@@ -35,3 +36,5 @@ export async function run(provider: NetworkProvider, args: string[]) {
     ui.clearActionPrompt();
     ui.write('Counter increased successfully!');
 }
+
+

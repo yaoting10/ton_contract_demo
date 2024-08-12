@@ -24,3 +24,7 @@
 ### Add a new contract
 
 `npx blueprint create ContractName` or `yarn blueprint create ContractName`
+
+
+
+physical fall pull business fashion visit flame advice black first fade taste nothing bag polar thrive then gauge stay photo check dish scheme supply

@@ -15,6 +15,7 @@ export async function run() {
     const counter = new Counter(counterAddress);
     const counterContract = client.open(counter);
 
+    console.log("value:", counterContract);
     // call the getter on chain
     const counterValue = await counterContract.getCounter();
     console.log("value:", counterValue.toString());
